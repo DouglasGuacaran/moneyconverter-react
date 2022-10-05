@@ -1,0 +1,35 @@
+span {
+    color: black;
+}
+
+.grid{
+    padding:15px;
+    width: 97%;
+    margin: 40px auto;
+    color: rgb(34, 31, 31);
+    background-color: #fff;
+    border-color: solid black;
+    border-radius:15px;
+    font-size: 1.3rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration:none;
+    color: rgb(34, 31, 31);
+}
+
+.esp {
+
+    width: 30%;
+    margin: auto;
+    padding: 15px;
+    color: rgb(34, 31, 31);
+    background-color: #fff;
+    border-color: solid black;
+    border-radius:15px;
+    font-size: 1.5rem;
+}

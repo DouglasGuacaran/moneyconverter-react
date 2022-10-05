@@ -1,0 +1,68 @@
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+span{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:15px;
+}
+
+
+.input1 {
+    display: grid;
+    grid-template-columns: 100px 80px;
+    border-radius: 15px;
+    background-color: rgb(180, 180, 228);
+    margin: 0 auto 20px;
+    color: black;
+}
+
+.input2 {
+    display: grid;
+    grid-template-columns: 100px 80px;
+    border-radius: 15px;
+    background-color: rgb(230, 225, 200);
+    margin: 0 auto 20px;
+    color: black;
+}
+
+input{
+    background:none;
+    border:0;
+    color: #fff;
+    padding: 10px;
+}
+
+.img-background{
+    height: 100vh;
+    background-image: linear-gradient(rgba(47, 54, 64,0.80),rgb(44, 74, 139)), url('../../fondo.jpg');
+    background-repeat: repeat;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        width: 10%;
+        height: 10vmin;
+        pointer-events: none;
+        animation: App-logo-spin infinite 3s linear;
+    }
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
