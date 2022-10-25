@@ -1,20 +1,35 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types"
+import "./currencyInput.css"
 
 function CurrencyInput(props) {
-  return (
-    <div className="group" >
-        <input className={props.name} type="text" value={props.amount} onChange={ev => props.onAmountChange(ev.target.value)}/>
-    </div>
-  )
+    return (
+        <div
+            id={props.id}
+        className="group">
+            <input
+                type="text"
+                value={props.amount}
+                onChange={(ev) => props.onAmountChange(ev.target.value)}
+            />
+            <select
+                value={props.currency}
+                onChange={(ev) => props.onCurrencyChange(ev.target.value)}
+            >
+                {props.currencies.map((currency) => (
+                    <option key={currency } value={currency}>{currency}</option>
+                ))}
+            </select>
+        </div>
+    )
 }
 
 CurrencyInput.propTypes = {
-
-  name: PropTypes.string,
-  amount: PropTypes.number.isRequired,
-  onAmountChange: PropTypes.func,
-
+    id: PropTypes.string,
+    amount: PropTypes.string.isRequired,
+    currency: PropTypes.string.isRequired,
+    currencies: PropTypes.array,
+    onAmountChange: PropTypes.func,
+    onCurrencyChange: PropTypes.func,
 }
 
 export default CurrencyInput

@@ -13,6 +13,12 @@ span {
     font-size: 1.3rem;
 }
 
+.money { 
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
 a {
     text-decoration: none;
 }
@@ -32,4 +38,9 @@ a:hover {
     border-color: solid black;
     border-radius:15px;
     font-size: 1.5rem;
+}
+
+.imgLogo{
+    width: 7vh;
+    border-radius:90Px;
 }

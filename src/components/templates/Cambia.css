@@ -1,4 +1,4 @@
-h1 {
+h1,h2 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,30 +13,28 @@ span{
     margin:15px;
 }
 
-
-.input1 {
-    display: grid;
-    grid-template-columns: 100px 80px;
-    border-radius: 15px;
-    background-color: rgb(180, 180, 228);
+.group{
+    background: rgb(10, 10, 10);
+    width: 190px;
     margin: 0 auto 20px;
-    color: black;
+    display: grid;
+    grid-template-columns: 100px 90px;
+    border-radius: 15px;
 }
 
-.input2 {
-    display: grid;
-    grid-template-columns: 100px 80px;
-    border-radius: 15px;
-    background-color: rgb(230, 225, 200);
-    margin: 0 auto 20px;
-    color: black;
-}
-
-input{
-    background:none;
-    border:0;
+input,select {
+    background: none;
+    border: 0;
     color: #fff;
-    padding: 10px;
+    background-color: rgb(10, 10, 10);
+    border-radius: 15px;
+}
+
+input {
+    padding-left: 10px;
+}
+select {
+    padding: 15px;
 }
 
 .img-background{

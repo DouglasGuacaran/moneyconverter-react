@@ -1,5 +1,5 @@
 import React from 'react'
-import './Bienvenida.css';
+import './bienvenida.css';
 import { Link } from 'react-router-dom';
 import Image1 from '../../../src/Logo1.png';
 import Image2 from '../../../src/logo.svg';
