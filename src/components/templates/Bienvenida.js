@@ -6,21 +6,22 @@ import Image2 from '../../../src/logo.svg';
 
 function Bienvenida() {
     return (
-        <div className="container1">
-            <div className="row">
-                <div className="col-12">
-                    <div className="row">
-                        <div className="col-4">
-                            <img className="image1" src={Image1} alt="imagenLogo1"></img>
+        <div className="body">
+            <div className="container1">
+                <div className="row">
+                    <div className="col-12">
+                        <div className="row">
+                            <div className="col-4">
+                                <img className="image1" src={Image1} alt="imagenLogo1"></img>
+                            </div>
+                            <div className="col-4 separator"></div>
+                            <div className="col-4">
+                                <img className="image2" src={Image2} alt="imagenLogo1"></img>
+                            </div>
                         </div>
-                        <div className="col-4 separator"></div>
-                        <div className="col-4">
-                            <img className="image2" src={Image2} alt="imagenLogo1"></img>
-                        </div>
+                        <p className="text">Money Converter proyecto desarrollado con React Js</p>
+                        <Link to="/home"><button className="btn btn-light buttonAdelante" >Adelante</button></Link>
                     </div>
-                    <p className="text">Money Converter proyecto desarrollado con React Js</p>
-                    <Link to="/home"><button className="btn btn-light buttonAdelante" >Adelante</button></Link>
-                    <p className="text1">Douglas Guacaran Dev &#174;</p>
                 </div>
             </div>
         </div>

@@ -69,34 +69,36 @@ function Cambia() {
     }
 
     return (
-        <div className="m-3">
-            <div className="row">
-                <div className="col">
-                    <img className="img" src={Image} alt="imagen"></img>
-                    <h1>Valor Dólar hoy: 1 USD {valorDolar} pesos Chilenos</h1>
-                    <h2>Valor Euro hoy: 1 USD {valorEuro} pesos Chilenos</h2>
-                    <span>Valor del dólar del día de hoy: {fechaHoy}</span>
-                    <CurrencyInput
-                        id="1"
-                        onCurrencyChange={handelCurrency1Change}
-                        onAmountChange={handleAmount1Change}
-                        amount={amount1}
-                        currencies={Object.keys(rates)}
-                        currency={currency1}
-                    />
-                    <CurrencyInput
-                        id="2"
-                        onCurrencyChange={handelCurrency2Change}
-                        onAmountChange={handleAmount2Change}
-                        amount={amount2}
-                        currencies={Object.keys(rates)}
-                        currency={currency2}
-                    />
-                    <span>
-                        {" "}
-                        Información obtenida a través de la siguiente API:
-                        https://mindicador.cl/api{" "}
-                    </span>
+        <div className="body">
+            <div className="m-3">
+                <div className="row">
+                    <div className="col">
+                        <img className="img" src={Image} alt="imagen"></img>
+                        <h1>Valor Dólar hoy: 1 USD {valorDolar} pesos Chilenos</h1>
+                        <h2>Valor Euro hoy: 1 EUR {valorEuro} pesos Chilenos</h2>
+                        <span>Valor del dólar del día de hoy: {fechaHoy}</span>
+                        <CurrencyInput
+                            id="1"
+                            onCurrencyChange={handelCurrency1Change}
+                            onAmountChange={handleAmount1Change}
+                            amount={amount1}
+                            currencies={Object.keys(rates)}
+                            currency={currency1}
+                            />
+                        <CurrencyInput
+                            id="2"
+                            onCurrencyChange={handelCurrency2Change}
+                            onAmountChange={handleAmount2Change}
+                            amount={amount2}
+                            currencies={Object.keys(rates)}
+                            currency={currency2}
+                            />
+                        <span>
+                            {" "}
+                            Información obtenida a través de la siguiente API:
+                            https://mindicador.cl/api{" "}
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>

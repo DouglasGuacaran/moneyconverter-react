@@ -1,3 +1,8 @@
+.body {
+    height: 750px;
+    margin: 0;
+    padding: 0;
+}
 .container1{
     padding: 2px;
     margin: 50px auto;

@@ -1,6 +1,7 @@
 import './App.css';
 import { Routes, Route} from 'react-router-dom';
 import Navbar from './layouts/Navbar';
+import Footer from './layouts/footer';
 import Cambia from './components/templates/Cambia';
 import Home from './components/templates/Home';
 import Contacto from './components/templates/Contacto';
@@ -16,6 +17,7 @@ function App() {
       <Route path="/cambia" element={<Cambia />} />
       <Route path="/contacto" element={<Contacto />} />
     </Routes>
+    <Footer />
   </div>
   );
 }

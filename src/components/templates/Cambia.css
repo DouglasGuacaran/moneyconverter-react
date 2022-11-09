@@ -1,3 +1,7 @@
+.body {
+    height: 750px;
+}
+
 h1,h2 {
     display: flex;
     align-items: center;

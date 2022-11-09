@@ -21,37 +21,36 @@ function Home() {
   })
 
 
-
-
-
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-12 grid">
-          <div className="row ">
-            <div className="col money">
-              <p>Bienvenido a <b>Money Converter </b><img className="imgLogo" src={Image} alt="imagenLogo1"></img></p>
+    <div className="body">
+      <div className="container">
+        <div className="row">
+          <div className="col-12 grid">
+            <div className="row ">
+              <div className="col money">
+                <p>Bienvenido a <b>Money Converter </b><img className="imgLogo" src={Image} alt="imagenLogo1"></img></p>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col">
+                <p>En Money Converter podrás visualizar en tiempo real el valor del Dólar, el Euro y Bitcoin, según el sitio web <a href="https://mindicador.cl/">https://mindicador.cl/</a></p>
+              </div>
             </div>
           </div>
-          <div className="row">
-            <div className="col">
-              <p>En Money Converter podrás visualizar en tiempo real el valor del Dólar, el Euro y Bitcoin, según el sitio web <a href="https://mindicador.cl/">https://mindicador.cl/</a></p>
-            </div>
+        </div>
+        <div className="row">
+          <div className="col-3 Dolar esp">
+            <span style={{"fontWeight": "bold"}}> Valor Dólar Observado</span>
+            <span>{valorDolar}</span>
           </div>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-3 Dolar esp">
-          <span style={{"fontWeight": "bold"}}> Valor Dólar Observado</span>
-          <span>{valorDolar}</span>
-        </div>
-        <div className="col-3 Euro esp">
-          <span style={{"fontWeight": "bold"}}>Valor Euro</span>
-          <span>{valorEuro}</span>
-        </div>
-        <div className="col-3 Bitcoin esp">
-          <span style={{"fontWeight": "bold"}}>Valor Bitcoin</span>
-          <span>{valorBitcoin}</span>
+          <div className="col-3 Euro esp">
+            <span style={{"fontWeight": "bold"}}>Valor Euro</span>
+            <span>{valorEuro}</span>
+          </div>
+          <div className="col-3 Bitcoin esp">
+            <span style={{"fontWeight": "bold"}}>Valor Bitcoin</span>
+            <span>{valorBitcoin}</span>
+          </div>
         </div>
       </div>
     </div>
