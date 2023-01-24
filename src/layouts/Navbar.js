@@ -9,20 +9,20 @@ function Navbar() {
 
 
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <Link to="/"><FaHome /></Link>
+            <Link to="moneyconverter-react/"><FaHome /></Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <Link className="nav-link" to="/home">Home</Link>
+                        <Link className="nav-link" to="moneyconverter-react/inicio">Inicio</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/cambia">Cambia</Link>
+                        <Link className="nav-link" to="moneyconverter-react/cambia">Cambia</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/contacto">Contacto</Link>
+                        <Link className="nav-link" to="moneyconverter-react/contacto">Contacto</Link>
                     </li>
                 </ul>
             </div>

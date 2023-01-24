@@ -20,7 +20,7 @@ function Bienvenida() {
                             </div>
                         </div>
                         <p className="text">Money Converter proyecto desarrollado con React Js</p>
-                        <Link to="/home"><button className="btn btn-light buttonAdelante" >Adelante</button></Link>
+                        <button className="btn btn-light buttonAdelante"><Link to="inicio">Adelante</Link></button>
                     </div>
                 </div>
             </div>

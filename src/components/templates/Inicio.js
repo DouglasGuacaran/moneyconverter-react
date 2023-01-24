@@ -1,5 +1,5 @@
 import React, { useEffect,useState } from 'react'
-import './home.css'
+import './inicio.css'
 import Image from '../../../src/Logo1.png'
 
 function Home() {
