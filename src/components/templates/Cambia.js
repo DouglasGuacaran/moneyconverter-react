@@ -35,7 +35,7 @@ function Cambia() {
     })
 
     function format(number) {
-        return number.toFixed(4)
+        return number.toFixed(2)
     }
 
     function handleAmount1Change(amount1) {

@@ -1,3 +1,10 @@
-.footer-copyright {
+.text-footer {
     color: #fff;
+    text-align: center;
+}
+
+@media  screen and (max-width: 768px) {
+    .text-footer{
+        font-size:10px;
+    }
 }
