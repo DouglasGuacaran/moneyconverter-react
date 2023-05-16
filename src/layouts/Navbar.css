@@ -1,8 +1,11 @@
-a {
+/* a {
     padding: 10px;
     text-decoration: none;
     color: gray;
+} */
+
+.navbar-toggler {
+  font-size: 1.5rem; /* Tamaño del icono de hamburguesa */
+  padding: 0.25rem 0.5rem; /* Espaciado interno del botón */
 }
-
-
 

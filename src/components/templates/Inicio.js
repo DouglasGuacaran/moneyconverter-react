@@ -1,6 +1,9 @@
 import React, { useEffect,useState } from 'react'
 import './inicio.css'
 import Image from '../../../src/Logo1.png'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function Home() {
   const [valorDolar, setValorDolar] = useState(1);
@@ -23,37 +26,38 @@ function Home() {
 
   return (
     <div className="body">
-      <div className="container">
-        <div className="row">
-          <div className="col-12 grid">
-            <div className="row ">
-              <div className="col money">
+      <Container>
+        <Row>
+          <Col  className='col-content-money'>
+            <Row>
+              <Col>
                 <p>Bienvenido a <b>Money Converter </b><img className="imgLogo" src={Image} alt="imagenLogo1"></img></p>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col">
+              </Col>
+            </Row>
+            <Row>
+              <Col>
                 <p>En Money Converter podrás visualizar en tiempo real el valor del Dólar, el Euro y Bitcoin, según el sitio web <a href="https://mindicador.cl/">https://mindicador.cl/</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-3 Dolar esp">
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+        <Row>
+          <Col className='col-money' xs lg="3">
             <span style={{"fontWeight": "bold"}}> Valor Dólar Observado</span>
             <span>{valorDolar}</span>
-          </div>
-          <div className="col-3 Euro esp">
+          </Col>
+          <Col className='col-money' xs lg="3">
             <span style={{"fontWeight": "bold"}}>Valor Euro</span>
             <span>{valorEuro}</span>
-          </div>
-          <div className="col-3 Bitcoin esp">
+          </Col>
+          <Col className='col-money' xs lg="3">
             <span style={{"fontWeight": "bold"}}>Valor Bitcoin</span>
             <span>{valorBitcoin}</span>
-          </div>
-        </div>
+          </Col>
+        </Row>
+      </Container>
       </div>
-    </div>
+
   )
   }
 

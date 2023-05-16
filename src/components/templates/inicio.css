@@ -1,20 +1,26 @@
 .body {
-    height: 750px;
+    height: 700px;
+    min-width: 300px;
 }
 
 span {
     color: black;
 }
 
+.container{
+    width: 90% !important;
+    margin: 10px;
+}
+
 .grid{
-    padding:15px;
+    margin: 30px;
+    padding: 20px;
     width: 97%;
-    margin: 40px auto;
     color: rgb(34, 31, 31);
     background-color: #fff;
     border-color: solid black;
     border-radius:15px;
-    font-size: 1.3rem;
+    font-size:14px;
 }
 
 .money { 
@@ -32,19 +38,34 @@ a:hover {
     color: rgb(34, 31, 31);
 }
 
-.esp {
+.col-content-money{
+    text-align: center;
+    border-radius:15px;
+    background-color: #fff;
+}
 
-    width: 30%;
-    margin: auto;
-    padding: 15px;
+.col-money {
+    height: 130px;
+    margin: 20px;
     color: rgb(34, 31, 31);
     background-color: #fff;
     border-color: solid black;
     border-radius:15px;
-    font-size: 1.5rem;
 }
 
 .imgLogo{
     width: 7vh;
     border-radius:90Px;
+}
+@media screen and (min-width: 680px) {
+
+    .container{
+        width: 45% !important;
+        margin: 45px;
+    }
+
+    .col-money {
+        margin-top: 30px!important;
+        font-size: 18px;
+    }
 }

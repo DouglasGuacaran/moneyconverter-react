@@ -2,12 +2,13 @@ import React from 'react'
 import './contacto.css'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
 
 function contacto() {
   return (
-    <div className="container">
+    <Container>
       <Form className="form" method='POST'>
-      <Form.Group className="mb-3">
+      <Form.Group className="mb-3" >
         <Form.Label className="label">Nombre completo</Form.Label>
         <Form.Control type="text" placeholder="Introduzca su nombre" />
       </Form.Group>
@@ -31,7 +32,7 @@ function contacto() {
         Enviar
       </Button>
     </Form>
-    </div>
+    </Container>
   )
 }
 

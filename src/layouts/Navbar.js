@@ -1,33 +1,28 @@
-import React from "react";
-import {Link} from "react-router-dom"
-import './navbar.css';
+import { Navbar, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { FaHome } from 'react-icons/fa';
 
-function Navbar() {
-    return(
-        <div className="container">
-
-
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <Link to="moneyconverter-react/"><FaHome /></Link>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav">
-                    <li className="nav-item">
-                        <Link className="nav-link" to="moneyconverter-react/inicio">Inicio</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="moneyconverter-react/cambia">Cambia</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="moneyconverter-react/contacto">Contacto</Link>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        </div>
-        )
-    }
-export default Navbar
+const navBar = () => {
+    return (
+        <Navbar bg="dark" expand="lg" variant="dark" className="sticky-top">
+        <Navbar.Brand className="m-2" as={Link} to="moneyconverter-react/">
+            <FaHome />
+        </Navbar.Brand>
+        <Navbar.Toggle className="m-2" aria-controls="navbarNav" />
+        <Navbar.Collapse id="navbarNav">
+            <Nav className="ml-auto">
+            <Nav.Link className="m-2" as={Link} to="moneyconverter-react/inicio">
+                Inicio
+            </Nav.Link>
+            <Nav.Link className="m-2" as={Link} to="moneyconverter-react/cambia">
+                Cambia
+            </Nav.Link>
+            <Nav.Link className="m-2" as={Link} to="moneyconverter-react/contacto">
+                Contacto
+            </Nav.Link>
+            </Nav>
+        </Navbar.Collapse>
+        </Navbar>
+    );
+};
+export default navBar
