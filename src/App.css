@@ -6,8 +6,13 @@
   font-family: poppins;
 }
 
-body {
-  height:900px;
+.App {
+  height:930px;
+}
+
+.img-background{
+    background-image: linear-gradient(rgba(47, 54, 64,0.80),rgb(44, 74, 139)), url('../public/img/fondo.jpg');
+    background-repeat: repeat;
 }
 
 

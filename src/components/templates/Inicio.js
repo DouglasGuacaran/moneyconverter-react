@@ -43,11 +43,11 @@ function Home() {
         </Row>
         <Row>
           <Col className='col-money' xs lg="3">
-            <span style={{"fontWeight": "bold"}}> Valor Dólar Observado</span>
+            <span style={{"fontWeight": "bold"}}> Dólar Observado</span>
             <span>{valorDolar}</span>
           </Col>
           <Col className='col-money' xs lg="3">
-            <span style={{"fontWeight": "bold"}}>Valor Euro</span>
+            <span style={{"fontWeight": "bold"}}>Euro Observado</span>
             <span>{valorEuro}</span>
           </Col>
           <Col className='col-money' xs lg="3">

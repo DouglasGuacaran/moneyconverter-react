@@ -37,11 +37,6 @@ select {
     padding: 15px;
 }
 
-.img-background{
-    height: 100%;
-    background-image: linear-gradient(rgba(47, 54, 64,0.80),rgb(44, 74, 139)), url('../../fondo.jpg');
-    background-repeat: repeat;
-}
 
 @media (prefers-reduced-motion: no-preference) {
     .img {
