@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
+import { useSelector } from "react-redux";
 import Image from "../../../src/coin.svg"
-import CurrencyInput from "../../layouts/CurrencyInput"
+import CurrencyInput from "../../layouts/CurrencyInput" 
 import "./cambia.css"
 
 function Cambia() {
-    const [valorDolar, setValorDolar] = useState()
-    const [valorEuro, setValorEuro] = useState()
+    const valorDolar = useSelector((state) => state.valorDolar);
+    const valorEuro = useSelector((state) => state.valorEuro);
+    // const valorBitcoin = useSelector((state) => state.valorBitcoin);
     const [amount1, setAmount1] = useState("0")
     const [amount2, setAmount2] = useState("0")
     const [currency1, setCurrency1] = useState("USD")
@@ -20,19 +22,6 @@ function Cambia() {
         day: "numeric",
     }
     const fechaHoy = day.toLocaleDateString("es-CH", options)
-
-    const BASE_URL = "https://mindicador.cl/api/"
-
-    useEffect(() => {
-        fetch(BASE_URL)
-            .then((response) => response.json())
-            .then((data) => {
-                setValorDolar(data.dolar.valor)
-                setValorEuro(data.euro.valor)
-    
-            })
-            .catch((error) => console.log("error", error))
-    })
 
     function format(number) {
         return number.toFixed(2)
@@ -73,7 +62,7 @@ function Cambia() {
             <div className="m-3">
                 <div className="row">
                     <div className="col">
-                        <img className="img" src={Image} alt="imagen"></img>
+                        <img className="img" src={Image} alt="dolar euro bitcoin"></img>
                         <h1>Valor Dólar hoy: 1 USD {valorDolar} pesos Chilenos</h1>
                         <h2>Valor Euro hoy: 1 EUR {valorEuro} pesos Chilenos</h2>
                         <span>Valor del dólar del día de hoy: {fechaHoy}</span>

@@ -1,28 +1,23 @@
-import React, { useEffect,useState } from 'react'
+import React, { useState,useEffect } from 'react'
+import { useSelector } from "react-redux";
 import './inicio.css'
 import Image from '../../../src/Logo1.png'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+
 function Home() {
-  const [valorDolar, setValorDolar] = useState(1);
-  const [valorEuro, setValorEuro] = useState(1);
-  const [valorBitcoin, setValorBitcoin] = useState(1);
-  
-
+  const [loading, setLoading] = useState(true);
+  const valorDolar = useSelector((state) => state.valorDolar);
+  const valorEuro = useSelector((state) => state.valorEuro);
+  const valorBitcoin = useSelector((state) => state.valorBitcoin);
   useEffect(() => {
-    fetch("https://mindicador.cl/api")
-    .then(response => response.json())
-    .then((data) => {
-      setValorDolar(data.dolar.valor)
-      setValorEuro(data.euro.valor)
-      setValorBitcoin(data.bitcoin.valor)
-    })
-    .catch(error => {console.log('error',error)})
-  
-  })
-
+    const timer = setTimeout(() => {
+      setLoading(false)
+    }, 400);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="body">
@@ -31,7 +26,7 @@ function Home() {
           <Col  className='col-content-money'>
             <Row>
               <Col>
-                <p>Bienvenido a <b>Money Converter </b><img className="imgLogo" src={Image} alt="imagenLogo1"></img></p>
+                <p>Bienvenido a <b>Money Converter </b><img className="imgLogo" src={Image} alt="dolar converter"></img></p>
               </Col>
             </Row>
             <Row>
@@ -43,16 +38,16 @@ function Home() {
         </Row>
         <Row>
           <Col className='col-money' xs lg="3">
-            <span style={{"fontWeight": "bold"}}> Dólar Observado</span>
-            <span>{valorDolar}</span>
+            <span style={{"fontWeight": "bold"}}>Dólar Observado</span>
+            <span>{ loading ? ('Cargando...'): valorDolar}</span>
           </Col>
           <Col className='col-money' xs lg="3">
             <span style={{"fontWeight": "bold"}}>Euro Observado</span>
-            <span>{valorEuro}</span>
+            <span>{loading ? ('Cargando...'): valorEuro}</span>
           </Col>
           <Col className='col-money' xs lg="3">
             <span style={{"fontWeight": "bold"}}>Valor Bitcoin</span>
-            <span>{valorBitcoin}</span>
+            <span>{loading ? ('Cargando...'): valorBitcoin}</span>
           </Col>
         </Row>
       </Container>

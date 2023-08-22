@@ -11,8 +11,8 @@ function Bienvenida() {
             <div className="row">
                 <div className="col">
                     <div className="icons">
-                        <img className="image" src={Image1} alt="imagenLogo1"></img>
-                        <img className="image2" src={Image2} alt="imagenLogo2"></img>
+                        <img className="image" src={Image1} alt="dolar"></img>
+                        <img className="image2" src={Image2} alt="euro"></img>
                     </div>
                     <p className="text">Money Converter proyecto desarrollado con React Js</p>
                     <div className="btn-primary">
