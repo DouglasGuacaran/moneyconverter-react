@@ -9,8 +9,10 @@ import Bienvenida from './components/templates/Bienvenida';
 import { Provider } from "react-redux";
 import store from "./store";
 import { setValorDolar, setValorEuro,setValorBitcoin } from "./actions";
-
+import React, { useEffect } from 'react';
 function App() {
+  
+  useEffect(() => {
   fetch("https://mindicador.cl/api")
     .then(response => response.json())
     .then(data => {
@@ -21,6 +23,8 @@ function App() {
     .catch(error => {
       console.log('Error fetching data:', error);
     });
+    },[]);
+
   return (
   <div className="App img-background">
     <Provider store={store}>

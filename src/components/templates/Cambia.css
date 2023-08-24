@@ -37,7 +37,16 @@ select {
     padding: 15px;
 }
 
+.zona-icono-intercambio {
+    margin: 0px;
+    padding: 0px !important;
+    width:auto !important;
+    place-self: center;
+}
 
+.boton {
+    transform: rotate(90deg)
+}
 @media (prefers-reduced-motion: no-preference) {
     .img {
         display: flex;
