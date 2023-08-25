@@ -19,17 +19,43 @@ function Cambia() {
     const valorBitcoinAPesoChileno = 1 / valorBitcoin;
     const [firstCurrency, setFirstCurrency] = useState(currencies[0].name)
     const [secondCurrency, setSecondCurrency] = useState(currencies[1].name)
-    const [amount, setAmount] = useState(1)
+    const [amount, setAmount] = useState('1.0')
     const [rateValue, setRate] = useState()
-    const [rateValueInverted, setRateInverted] = useState(valorEuro/valorDolar)
+    const [rateValueInverted, setRateInverted] = useState()
 
     useEffect(() => {
-        // Calcula la cantidad convertida de Dólar a Euro
-        const rate = valorDolar / valorEuro;
+        
+        const conversionRates = {
+            'Dolar-Euro': valorDolar / valorEuro,
+            'Euro-Dolar': valorEuro / valorDolar,
+            'Dolar-Bitcoin': valorDolar / valorBitcoin,
+            'Bitcoin-Dolar': valorBitcoin / valorDolar,
+            'Bitcoin-Euro': valorBitcoin / valorEuro,
+            'Euro-Bitcoin': valorEuro / valorBitcoin,
+            'Dolar-Peso Chileno': valorDolar,
+            'Euro-Peso Chileno': valorEuro,
+            'Bitcoin-Peso Chileno':valorBitcoin,
+            'Peso Chileno-Dolar': valorDolarAPesoChileno,
+            'Peso Chileno-Euro': valorEuroAPesoChileno,
+            'Peso Chileno-Bitcoin': valorBitcoinAPesoChileno,
+        };
 
-        // Actualiza el estado de 'amount'
-        setRate(rate);
-    }, [valorDolar, valorEuro]);
+        const conversionKey = `${firstCurrency}-${secondCurrency}`;
+        const conversionKeyInverted = `${secondCurrency}-${firstCurrency}`;
+        const conversionRate = conversionRates[conversionKey];
+        const conversionRateInverted = conversionRates[conversionKeyInverted];
+        
+        if (conversionRate !== undefined) {
+            setRate(amount * conversionRate);
+            setRateInverted(amount *conversionRateInverted);
+            
+
+        } else {
+            setRate(amount);
+            setRateInverted(amount)
+        }
+
+    }, [valorDolar, valorEuro, valorBitcoin, valorDolarAPesoChileno, valorEuroAPesoChileno, valorBitcoinAPesoChileno, firstCurrency, secondCurrency, amount]);
     
 
     const day = new Date();
@@ -46,52 +72,40 @@ function Cambia() {
     const handleOrigingCurrencyChange = (event) => {
         const nuevaMonedaOrigen = event.target.value;
         setFirstCurrency(nuevaMonedaOrigen);
-        handleChangeAmount()
+        handleChangeAmount(event)
+        setAmount(amount);
     };
     
     const handleDestinyCurrencyChange = (event) => {
         const nuevaMonedaDestino = event.target.value;
         setSecondCurrency(nuevaMonedaDestino);
-        handleChangeAmount()
+        handleChangeAmount(event)
+        setAmount(amount);
     };
     
     const handleIntercambioClick = () => {
         const temp = firstCurrency;
         setFirstCurrency(secondCurrency);
         setSecondCurrency(temp);
+        setAmount(amount);
     };
-    
+
     const handleChangeAmount = (event) => {
         const value = event.target.value;
-    setAmount(value);
-
-    const conversionRates = {
-        'Dolar-Euro': valorDolar / valorEuro,
-        'Euro-Dolar': valorEuro / valorDolar,
-        'Dolar-Bitcoin': valorDolar / valorBitcoin,
-        'Bitcoin-Euro': valorBitcoin / valorEuro,
-        'Peso Chileno-Dolar': valorDolarAPesoChileno,
-        'Dolar-Peso Chileno': valorDolar,
-        'Peso Chileno-Euro': valorEuroAPesoChileno,
-        'Peso Chileno-Bitcoin': valorBitcoinAPesoChileno,
-    };
-
-    const conversionKey = `${firstCurrency}-${secondCurrency}`;
-    const conversionKeyInverted = `${secondCurrency}-${firstCurrency}`;
-    const conversionRate = conversionRates[conversionKey];
-    const conversionRateInverted = conversionRates[conversionKeyInverted];
-
-    if (conversionRate !== undefined) {
-        setRate(value * conversionRate);
-        setRateInverted(value *conversionRateInverted);
-
-        console.log(conversionRate);
-        console.log(conversionRateInverted);
-    } else {
-        setRate(value);
-        setRateInverted(value)
+        if (value === "" || isNaN(value)) {
+            setAmount(1.0);
+        } else if (value === ".") {
+            setAmount(0.1);
+        } else if (/^[0-9]*(\.[0-9]*)?$/.test(value)) {
+            const parsedValue = parseFloat(value);
+            if (!isNaN(parsedValue) && parsedValue > 0) {
+                setAmount(parsedValue);
+            } else {
+                alert('Ingrese un número mayor a cero');
+            }
+        }
     }
-    }
+
     return (
     <div className="container-gl">
     <div className="row">
@@ -102,9 +116,9 @@ function Cambia() {
             </h2>
         </div>
         <div className="row">
-            <div className="col-2">
-                <input type="text" className="form-control" onChange={handleChangeAmount} id="floatingInput" placeholder={amount}/>
-            </div>
+        <div className="col-2">
+            <input type="text" className="form-control" onChange={handleChangeAmount} id="floatingInput" placeholder="1.0"/>
+        </div>
             <div className="col-4">
                 <select
                 className="form-select"
@@ -142,7 +156,7 @@ function Cambia() {
                 <p className="text"> cantidad {amount}</p>
                 <p className="text" id="tasa"> {amount} {firstCurrency} = {rateValue} {secondCurrency}</p>
                 <p className="text" id="tasaInvertida"> {amount} {secondCurrency} = {rateValueInverted} {firstCurrency}</p>
-                <span>Valor de {firstCurrency} del día de hoy: {valorDolar} {fechaHoy}</span>
+                <span>Valor de {firstCurrency} del día de hoy: {valorDolar} pesos chilenos {fechaHoy}</span>
                 <span>
                 Información obtenida a través de la siguiente API:
                 https://mindicador.cl/api
