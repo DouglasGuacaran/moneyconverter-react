@@ -46,13 +46,13 @@ function Cambia() {
         const conversionRateInverted = conversionRates[conversionKeyInverted];
         
         if (conversionRate !== undefined) {
-            setRate(amount * conversionRate);
-            setRateInverted(amount *conversionRateInverted);
+            setRate(format(amount * conversionRate));
+            setRateInverted(format(amount * conversionRateInverted));
             
 
         } else {
-            setRate(amount);
-            setRateInverted(amount)
+            setRate(format(amount));
+            setRateInverted(format(amount))
         }
 
     }, [valorDolar, valorEuro, valorBitcoin, valorDolarAPesoChileno, valorEuroAPesoChileno, valorBitcoinAPesoChileno, firstCurrency, secondCurrency, amount]);
@@ -68,6 +68,9 @@ function Cambia() {
         minute: "numeric",
     };
     const fechaHoy = day.toLocaleDateString("es-CH", options);
+    function format(number) {
+        return number.toFixed(3)
+    }
         
     const handleOrigingCurrencyChange = (event) => {
         const nuevaMonedaOrigen = event.target.value;
@@ -94,8 +97,8 @@ function Cambia() {
         const value = event.target.value;
         if (value === "" || isNaN(value)) {
             setAmount(1.0);
-        } else if (value === ".") {
-            setAmount(0.1);
+        } else if (value === "." && value <0) {
+            alert('Ingrese un número mayor a cero')
         } else if (/^[0-9]*(\.[0-9]*)?$/.test(value)) {
             const parsedValue = parseFloat(value);
             if (!isNaN(parsedValue) && parsedValue > 0) {
@@ -108,17 +111,18 @@ function Cambia() {
 
     return (
     <div className="container-gl">
-    <div className="row">
-        <div className="col">
-            <img className="img" src={Image} alt="imagen"></img>
-            <h2>
-            Convertir {firstCurrency} a {secondCurrency}
-            </h2>
+        <div className="row">
+            <div className="col">
+                <img className="img" src={Image} alt="imagen"></img>
+                <h2>
+                Convertir {firstCurrency} a {secondCurrency}
+                </h2>
+            </div>  
         </div>
         <div className="row">
-        <div className="col-2">
-            <input type="text" className="form-control" onChange={handleChangeAmount} id="floatingInput" placeholder="1.0"/>
-        </div>
+            <div className="col-2">
+                <input type="text" className="form-control" onChange={handleChangeAmount} id="floatingInput" placeholder="1.0"/>
+            </div>
             <div className="col-4">
                 <select
                 className="form-select"
@@ -132,39 +136,46 @@ function Cambia() {
                         ))}
                 </select>
             </div>
-
             <div className="col-1 zona-icono-intercambio">
                 <button className="btn btn-light text-primary boton"type="button" onClick={handleIntercambioClick}>⇅</button>
             </div>
-            
             <div className="col-4">
-            <select
-            className="form-select"
-            value={secondCurrency}
-            onChange={handleDestinyCurrencyChange}
-            >
-                {currencies.map((currency) => (
-                    <option key={currency.code} value={currency.name}>
-                    {currency.code + " - " + currency.name}
-                </option>
-                ))}
-                <option value={secondCurrency}></option>
-            </select>
+                <select
+                className="form-select"
+                value={secondCurrency}
+                onChange={handleDestinyCurrencyChange}
+                >
+                    {currencies.map((currency) => (
+                        <option key={currency.code} value={currency.name}>
+                        {currency.code + " - " + currency.name}
+                    </option>
+                    ))}
+                    <option value={secondCurrency}></option>
+                </select>
+            </div>
+            <div className="row text-center">
+                <div className="col align-self-start">
+                    <p className="text align-self-start"> cantidad ingresada {amount}</p>
+                </div>
+            </div>
+            <div className="row text-center">
+                <div className="col align-self-start">
+                    <p className="text" id="tasa"> {amount} {firstCurrency} = {rateValue} {secondCurrency}</p>
+                </div>
+            </div>
+            <div className="row text-center">
+                <div className="col align-self-start">
+                    <p className="text" id="tasaInvertida"> {amount} {secondCurrency} = {rateValueInverted} {firstCurrency}</p>
+                </div>
             </div>
             <div className="row">
-            <div className="col">
-                <p className="text"> cantidad {amount}</p>
-                <p className="text" id="tasa"> {amount} {firstCurrency} = {rateValue} {secondCurrency}</p>
-                <p className="text" id="tasaInvertida"> {amount} {secondCurrency} = {rateValueInverted} {firstCurrency}</p>
-                <span>Valor de {firstCurrency} del día de hoy: {valorDolar} pesos chilenos {fechaHoy}</span>
-                <span>
-                Información obtenida a través de la siguiente API:
-                https://mindicador.cl/api
-                </span>
-            </div>
+                    <span>El valor del cambio de {amount} {firstCurrency} para el día de hoy {fechaHoy} equivale a {rateValue} {secondCurrency}. </span>
+                    <span>
+                    Información obtenida a través de la siguiente API:
+                    https://mindicador.cl/api
+                    </span>
             </div>
         </div>
-        </div>  
     </div>
     );
 }
