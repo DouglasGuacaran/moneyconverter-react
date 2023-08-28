@@ -51,8 +51,8 @@ function Cambia() {
             
 
         } else {
-            setRate(format(amount));
-            setRateInverted(format(amount))
+            setRate(format(parseFloat(amount)));
+            setRateInverted(format(parseFloat(amount)))
         }
 
     }, [valorDolar, valorEuro, valorBitcoin, valorDolarAPesoChileno, valorEuroAPesoChileno, valorBitcoinAPesoChileno, firstCurrency, secondCurrency, amount]);
