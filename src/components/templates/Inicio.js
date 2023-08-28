@@ -76,10 +76,15 @@ function Home() {
         xAxis: {
           type: 'category',
           data: dates,
-          // nameLocation: 'middle'
+          axisLabel: {
+            interval: 5, // Mostrar todas las etiquetas
+            margin: 10    // Ajusta el margen superior para mover las etiquetas hacia arriba
+          }
         },
         yAxis: {
           type: 'value',
+          name:'Pesos Chilenos',
+          nameLocation: 'end',
           
         },
         series: [
@@ -94,7 +99,6 @@ function Home() {
             type: 'line',
             data: euroValues
           },
-          
         ],
       };
 
@@ -123,15 +127,15 @@ function Home() {
         <Row>
           <Col className='col-money' xs lg="3">
             <span style={{"fontWeight": "bold"}}>Dólar Observado</span>
-            <span>{ loading ? ('Cargando...'): valorDolar}</span>
+            <span>{ loading ? ('Cargando...'): valorDolar+' $ Chilenos'}</span>
           </Col>
           <Col className='col-money' xs lg="3">
             <span style={{"fontWeight": "bold"}}>Euro Observado</span>
-            <span>{loading ? ('Cargando...'): valorEuro}</span>
+            <span>{loading ? ('Cargando...'): valorEuro +' $ Chilenos'}</span>
           </Col>
           <Col className='col-money' xs lg="3">
-            <span style={{"fontWeight": "bold"}}>Valor Bitcoin</span>
-            <span>{loading ? ('Cargando...'): valorBitcoin}</span>
+            <span style={{"fontWeight": "bold"}}>Valor Bitcoin Observado</span>
+            <span>{loading ? ('Cargando...'): valorBitcoin+' $ Chilenos'}</span>
           </Col>
         </Row>
         <Row className="row">

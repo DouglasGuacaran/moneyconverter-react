@@ -47,10 +47,14 @@ a:hover {
 .col-money {
     height: 130px;
     margin: 20px;
+    padding: 5px;
     color: rgb(34, 31, 31);
     background-color: #fff;
     border-color: solid black;
     border-radius:15px;
+}
+.col-money span {
+    font-size: 12px;
 }
 
 .imgLogo{
