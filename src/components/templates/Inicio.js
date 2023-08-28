@@ -5,7 +5,8 @@ import Image from '../../../src/Logo1.png'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import * as echarts from 'echarts';;
+import * as echarts from 'echarts';
+import 'echarts/theme/dark'
 
 
 function Home() {
@@ -44,9 +45,8 @@ function Home() {
   }, []);
   useEffect(() => {
     if (!loading && Object.keys(historicalData).length > 0) {
-      const chartElement = echarts.init(document.getElementById('graph'));
+      const chartElement = echarts.init(document.getElementById('graph'),'dark');
       const dolarData = historicalData.dolar;
-      console.log(dolarData)
       const euroData = historicalData.euro;
       const dates = dolarData.map((e) => {
         const date = new Date(e.fecha);
@@ -62,9 +62,13 @@ function Home() {
       const option = {
         title: {
           text: 'Dólar y Euro',
+
         },
         tooltip: {
           trigger: 'axis',
+          textStyle: {
+            fontSize: 11, // Ajusta el tamaño de fuente del tooltip
+          },
         },
         legend: {
           data: ['Dólar', 'Euro'],
@@ -72,16 +76,18 @@ function Home() {
         xAxis: {
           type: 'category',
           data: dates,
-          nameLocation: 'middle'
+          // nameLocation: 'middle'
         },
         yAxis: {
           type: 'value',
+          
         },
         series: [
           {
             name: 'Dólar',
             type: 'line',
             data: dolarValues,
+            
           },
           {
             name: 'Euro',
@@ -130,7 +136,7 @@ function Home() {
         </Row>
         <Row className="row">
           <Col className="col">
-            <div id="graph" style={{ borderRadius: '5px' ,backgroundColor:'white', width: '100%', height: '400px' }}></div>
+            <div id="graph" style={{ width: '100%', height: '400px' }}></div>
           
           </Col>
         </Row>
